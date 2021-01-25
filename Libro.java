@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int paginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         paginas = numeroPaginas;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     public String getAutor() {
@@ -42,6 +44,10 @@ public class Libro {
         return numeroReferencia;
     }
     
+    public int getVecesPrestado(){
+        return vecesPrestado;
+    }
+    
     public void setNumeroReferencia(String numeroReferencia) {
         if(numeroReferencia.length() >= 3) { 
             this.numeroReferencia = numeroReferencia;
@@ -49,6 +55,10 @@ public class Libro {
         else if (numeroReferencia.length()  < 3){
             System.out.println("El numero de referencia no es valido");  
         }
+    }
+    
+    public void prestar(){
+        vecesPrestado = vecesPrestado + 1;
     }
     
     public void imprimeAutor() {
@@ -61,22 +71,22 @@ public class Libro {
     
     public void imprimeDetalles() {
         if (numeroReferencia!= "") {
-            System.out.println("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia);
+            System.out.println("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia + ", Prestado: " + vecesPrestado);
         }
         else {
             numeroReferencia = "zzz";
-            System.out.println("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia);
+            System.out.println("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia + ", Prestado: " + vecesPrestado);
         }
     }
     
     public String getDetalles(){
         String detalles; 
         if (numeroReferencia!= "") {
-            detalles = ("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia);
+            detalles = ("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia + ", Prestado: " + vecesPrestado);
         }
         else {
             numeroReferencia = "zzz";
-            detalles = ("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia);
+            detalles = ("Titulo: " + titulo + ", autor: " + autor + ", Paginas: " + paginas + ", Numero de referencia: " + numeroReferencia + ", Prestado: " + vecesPrestado);
         }
         return detalles;
     }
